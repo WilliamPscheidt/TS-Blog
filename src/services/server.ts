@@ -5,6 +5,11 @@ export default class HTTPServer {
 
   constructor() {
     this.server = express()
+    this.middlewares()
+  }
+
+  async middlewares() {
+    this.server.use(express.json());
   }
 
   async startServer() {

@@ -1,11 +1,6 @@
 import HTTPServer from './services/server'
 
-const testeMiddle = (req, res, next) => {
-
-    console.log("Middleware")
-
-    next()
-}
+import Post from './controllers/admin/post.controller'
 
 class Router extends HTTPServer {
 
@@ -16,14 +11,11 @@ class Router extends HTTPServer {
     }
     
     async userRoutes() {
-        this.server.get('/users/login', (req, res) => {res.send({"user_route": "login"})})
-        this.server.get('/users/register', (req, res) => {res.send({"user_route": "register"})})
+        this.server.get('/get_posts', (req, res) => {res.send({"user_route": "login"})})
     }
 
     async adminRoutes() {
-        this.server.use('/admin', testeMiddle)
-        this.server.get('/admin/login', (req, res) => {res.send({"admin_route": "login"})})
-        this.server.get('/admin/register', (req, res) => {res.send({"admin_route": "register"})})
+        this.server.post('/admin/create_post', Post.create)
     }
 }
 
