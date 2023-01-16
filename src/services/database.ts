@@ -19,11 +19,11 @@ export default class Database {
         await newDocument.save();
     }
 
-    async delete(model, query:String) {
+    async delete(model, query: Object) {
         return await model.deleteMany(query)
     }
 
-    async update(model, query:String, update:String) {
+    async update(model, query:Object, update:Object) {
         return await model.updateMany(query, update)
     }
 }

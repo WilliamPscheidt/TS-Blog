@@ -15,7 +15,9 @@ class Router extends HTTPServer {
     }
 
     async adminRoutes() {
-        this.server.post('/admin/create_post', Post.create)
+        this.server.post('/admin/post', Post.create)
+        this.server.put('/admin/post', Post.update)
+        this.server.delete('/admin/post', Post.delete)
     }
 }
 
