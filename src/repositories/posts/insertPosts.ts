@@ -1,4 +1,4 @@
-import Database from '../../services/database'
+import Database from '../../adapters/database'
 import postSchema from '../../models/Posts.model'
 
 export default class InsertPosts {

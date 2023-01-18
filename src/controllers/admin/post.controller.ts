@@ -16,7 +16,7 @@ export default class Post {
     static async get(req: Request<any, any, GetBody>, res: Response) {
         const {title} = req.body
 
-        const posts = GetPosts.execute(title)
+        const posts = await GetPosts.execute(title)
 
         res.send({"success": posts});
     }
@@ -24,7 +24,7 @@ export default class Post {
     static async create(req: Request<any, any, PostBody>, res: Response) {
         const {title, description, text, author} = req.body
 
-        InsertPosts.execute(title, description, text, author)
+        await InsertPosts.execute(title, description, text, author)
 
         res.send({"success": "post inserted"})
     }
@@ -32,7 +32,7 @@ export default class Post {
     static async update(req: Request<any, any, PostUpdateBody>, res: Response) {
         const {oldTitle, title, description, text, author} = req.body
 
-        UpdatePosts.execute(oldTitle, title, description, text, author)
+        await UpdatePosts.execute(oldTitle, title, description, text, author)
 
         res.send({"Ok": "updated"})
     }
@@ -40,7 +40,7 @@ export default class Post {
     static async delete(req: Request<any, any, PostDeleteBody>, res: Response) {
         const {title} = req.body
 
-        DeletePost.execute(title)
+        await DeletePost.execute(title)
 
         res.send({"Ok": "post deleted"})
     }

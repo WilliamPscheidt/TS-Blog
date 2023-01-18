@@ -1,10 +1,9 @@
-import HTTPServer from './services/server'
+import HTTPServer from './adapters/server'
 
 import Post from './controllers/admin/post.controller'
 
 class Router extends HTTPServer {
 
-    prefix: string
     constructor() {
         super()
         this.startServer()
