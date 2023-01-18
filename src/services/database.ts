@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import dbConnection from "../../configurations"
+import dbConnection from "../configurations/configurations"
 
 export default class Database {
 
@@ -10,8 +10,8 @@ export default class Database {
         this.db.on('error', console.error.bind(console, 'connection error'));
     }
 
-    async find(model, query:String, projection:String, options:String) {
-        return await model.find(query, projection, options)
+    async find(model, query:Object) {
+        return await model.find(query)
     }
 
     async insert(model, data: { title: any; description: string; text: string; author: string; }) {

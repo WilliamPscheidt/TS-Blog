@@ -11,7 +11,7 @@ class Router extends HTTPServer {
     }
     
     async userRoutes() {
-        this.server.get('/get_posts', (req, res) => {res.send({"user_route": "login"})})
+        this.server.get('/user/post', Post.get)
     }
 
     async adminRoutes() {
